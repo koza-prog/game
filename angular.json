@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "game-edu-surv"
+    }
+  },
+  "defaultProject": "game-edu-surv",
+  "cli": {
+    "analytics": "437522e0-972b-4cb0-a42b-364fc61d9f7c"
+  }
 }
