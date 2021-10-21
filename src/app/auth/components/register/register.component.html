@@ -1,1 +1,40 @@
-<p>register works!</p>
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+        <h3>Register</h3>
+        <form #register="ngForm" (ngSubmit)="onSubmit(register)" novalidate>
+            <div class="mb-3">
+              <label for="registerUsername" class="form-label">Nazwa użytkownika</label>
+                <!-- <p>Twoja nazwa użytkownika. Ważne żeby inny użytkownik się tak samo nie nazywał, o czym zostaniesz poinformowany jeśli by taka sytuacja nastąpiła. Aby sprawdzić o czym piszę napisz jako nazwę użytkownika "kiełbasa".</p> -->
+              <input type="text"
+                     class="form-control" 
+                     id="registerUsername" 
+                     placeholder="Enter username"
+                     name="registerUsername"
+                     ngModel
+                     #registerUsername="ngModel">
+            </div>
+            <div class="mb-3">
+                <label for="registerEmail" class="form-label">Email</label>
+                <!-- <p>Email którym będziesz się logował. Pamiętaj aby go nie zapomnieć !</p> -->
+                <input type="text"
+                       class="form-control" 
+                       id="registerEmail" 
+                       placeholder="Enter username"
+                       name="registerEmail"
+                       ngModel
+                       #registerEmail="ngModel">
+              </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Hasło</label>
+              <!-- <p>Hasło dzięki któremu się będziesz logował. Osobiście używam kombinacji pierwszych liter jakiegoś zdania. <span>(np. "Morze jest głębokie i szerokie, a do tego ma dużo ryb." Hasło dla tego zdania jest następnujące - Mjg1sadtmdr. Niektóre litery zastąp liczbą(tak jak w przykładzie) co utrudni niecnym ludziom pozyskanie Twojego hasła. Dzięki znajomości zdania, zawsze możesz sobie przypomnieć jak ono brzmi.)</span></p> -->
+              <input type="password"
+                     class="form-control" 
+                     id="registerPassword"
+                     name="registerPassword"
+                     ngModel
+                     #registerPassword="ngModel">
+            </div>
+            <button [disabled]="register.invalid" type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i>Register</button>
+          </form>
+    </div>
+</div>
