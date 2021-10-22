@@ -20,20 +20,32 @@ export class AuthService {
   public currentUser: Observable<Uzytkownik>;
   constructor(private http: HttpClient) { }
 
+  public get currentUserValue(): any {
+    console.log(this.currentUserSubject.value)
+    return this.currentUserSubject.value
+  }
   login(email,password){
     const headers = new HttpHeaders({'Content-Type':'application/json'});
     // console.log({a,b})
     return this.http.post(this.authUrl + 'usr_login/', JSON.stringify({email,password}))
-    .pipe(
-      map((respons: any)=>{
-        const user = respons
-        if(user.success){
-          // localStorage.setItem('token',user.token)
-          console.log(user.token)
+    .pipe(map((user: any)=>{
+      console.log(user)
+      // if(user.pracownicy[0]){
+      //   localStorage.setItem('currentUser', JSON.stringify(user.pracownicy[0]))
+      //   this.currentUserSubject.next(user.pracownicy[0])
+      // }
+      // return user
+    }))
+    // .pipe(
+    //   map((respons: any)=>{
+    //     const user = respons
+    //     if(user.success){
+    //       // localStorage.setItem('token',user.token)
+    //       console.log(user.token)
 
-        }
-      })
-    )
+    //     }
+    //   })
+    // )
 
   }
 }

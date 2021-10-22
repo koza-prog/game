@@ -28,8 +28,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     // console.log(login.value)
+    console.log(this.f)
     const loginObservable = {
-      next: x => console.log(x.value),
+      next: x => console.log(x),
       error: err => console.log(err)
     }
     this.authService.login(this.f.email.value, this.f.passwd.value).subscribe(loginObservable)
